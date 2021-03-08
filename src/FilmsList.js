@@ -1,24 +1,20 @@
 import './FilmsList.css';
-import moviesData from './movies'
 import Film from './Film.js'
-import Bucket from './Bucket'
-import { useState } from "react";
 
-const FilmsList = () => {
-  const [wishId, setWishId] = useState([])
-
-
+const FilmsList = ({ films, onAddToWithList, onRemoveFromWithList }) => {
   return (
     <section >
       <div className='main-section'>
-        {moviesData.map(item => {
+        {films.map(item => {
           return (
-            <Film key={item.id} wishId={wishId} setWishId={setWishId} filmId={item.id} title={item.title} rate={item.rate} imgUrl={item.poster_path} />
+            <Film
+              film={item}
+              key={item.id}
+              onAddToWithList={onAddToWithList}
+              onRemoveFromWithList={onRemoveFromWithList}
+            />
           )
         })}
-      </div>
-      <div className='bucket'>
-        <Bucket moviesData={moviesData} wishId={wishId}/>
       </div>
     </section>
   )
