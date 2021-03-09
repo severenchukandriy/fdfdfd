@@ -1,10 +1,10 @@
-import './Film.css';
 import React, { useState } from 'react'
 import  {NavLink} from "react-router-dom"
 
 
 function Film({ film, onAddToWithList, onRemoveFromWithList }) {
-  const [status, setStatus] = useState(false)
+  let defaultStatus = JSON.parse(localStorage.getItem('wishList')).filter(elem=> +elem.id === +film.id)[0]
+  const [status, setStatus] = useState(defaultStatus)
 
   const handleClick = (film) => {
     setStatus(!status)
