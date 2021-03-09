@@ -1,4 +1,4 @@
-.App{
+.App {
   display: flex;
 }
 
@@ -7,7 +7,7 @@
   flex-direction: column;
 }
 
-.bucket .film-poster{
+.bucket .film-poster {
   max-width: 100px;
 }
 
@@ -20,6 +20,20 @@ section {
   display: flex;
 }
 
-.bucket{
+.bucket {
   min-width: 20%;
+}
+
+.film-item {
+  max-width: 20%;
+  margin: 15px;
+  min-height: 430px;
+}
+
+.film-poster {
+  max-width: 100%;
+}
+
+.film-title {
+  min-height: 4rem;
 }

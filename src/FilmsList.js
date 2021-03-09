@@ -1,4 +1,3 @@
-import './FilmsList.css';
 import Film from './Film.js'
 
 const FilmsList = ({ films, onAddToWithList, onRemoveFromWithList }) => {

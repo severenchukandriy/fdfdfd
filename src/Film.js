@@ -3,7 +3,7 @@ import  {NavLink} from "react-router-dom"
 
 
 function Film({ film, onAddToWithList, onRemoveFromWithList }) {
-  let defaultStatus = JSON.parse(localStorage.getItem('wishList')).filter(elem=> +elem.id === +film.id)[0]
+  let defaultStatus = localStorage.getItem('wishList') ? JSON.parse(localStorage.getItem('wishList')).filter(elem=> +elem.id === +film.id)[0] : false
   const [status, setStatus] = useState(defaultStatus)
 
   const handleClick = (film) => {

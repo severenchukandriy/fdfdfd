@@ -1,6 +1,6 @@
 import {NavLink} from 'react-router-dom'
 
-function Bucket({ wishList }) {
+export default function Bucket({ wishList }) {
   return (
     <div className='bucket'>
       <h3>Bucket list {wishList.length}</h3>
@@ -15,4 +15,4 @@ function Bucket({ wishList }) {
   );
 }
 
-export default Bucket;
+
