@@ -2,15 +2,15 @@
 
 function Bucket({ wishList }) {
   return (
-    <>
-      <h3>Bucket list</h3>
+    <div className='bucket'>
+      <h3>Bucket list {wishList.length}</h3>
         {wishList.map((film) => (
-        <div key={film.id}>
+        <div key={film.title}>
           <h4>{film.title}</h4>
           <img className='film-poster' alt="film" src={'https://image.tmdb.org/t/p/w500' + film.poster_path}></img>
         </div>
         ))}
-    </>
+    </div>
   );
 }
 
