@@ -37,3 +37,23 @@ section {
 .film-title {
   min-height: 4rem;
 }
+
+.search {
+  background-color: blueviolet;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  padding: 15px;
+}
+
+.search input{
+  height: 2em;
+}
+
+.search-result {
+  transition: all .3s linear;
+}
+
+.search-result a{
+  color: black
+}

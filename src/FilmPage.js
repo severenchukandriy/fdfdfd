@@ -1,18 +1,30 @@
-// import React, { useState } from 'react'
-// import moviesData from './movies'
-import { NavLink } from 'react-router-dom'
 
-export default function FilmPage({ data }) {
-  let filmId = window.location.href.slice(-6)
-  let film = data.filter(elem => +elem.id === +filmId ? elem : false)[0]
+import axios from 'axios'
+import { useState, useEffect } from 'react'
+
+export default function FilmPage() {
+  let filmId = window.location.href.slice(window.location.href.lastIndexOf('/') + 1)
+  const [film, setFilm] = useState([])
+
+  useEffect(() => {
+    async function fetchingData() {
+      const response = await axios(`https://api.themoviedb.org/3/movie/${filmId}?api_key=de85f77f783771ffb98c2924e950206c`)
+      setFilm(response.data)
+    }
+    fetchingData()
+  }, [filmId])
+
 
   return (
     <div className="film-page">
-      <NavLink exact to='/'>Go back</NavLink>
-      <h2 className='film-title'>{film.original_title}</h2>
-      <p>{film.overview}</p>
-      <img className='film-poster' alt={film.title + 'poster'} src={'https://image.tmdb.org/t/p/w500' + film.poster_path}></img>
-      <span>{film.rate}</span>
+      {film ? (
+        <>
+          <h2 className='film-title'>{film.title}</h2>
+          <p>{film.overview}</p>
+          <img className='film-poster' alt={film.title + 'poster'} src={'https://image.tmdb.org/t/p/w500' + film.poster_path}></img>
+          <span>{film.rate}</span>
+        </>
+      ) : 'loading'}
     </div>
   );
 }
